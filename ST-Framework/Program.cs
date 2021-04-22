@@ -24,6 +24,14 @@ namespace ST_Framework
 
         private static void test(int iterations)
         {
+            ForTest(iterations);
+            GotoTest(iterations);
+            ForTest(iterations);
+            GotoTest(iterations);
+        }
+
+        private static void ForTest(int iterations)
+        {
             var test = 0;
             Console.WriteLine("For test:");
             var watch = new System.Diagnostics.Stopwatch();
@@ -35,10 +43,14 @@ namespace ST_Framework
                 ++test;
             }
             watch.Stop();
-            Console.WriteLine($"Elapsed time: {watch.Elapsed}");
+            Console.WriteLine($"Elapsed time: {watch.Elapsed}\n");
+        }
 
-            test = 0;
+        private static void GotoTest(int iterations)
+        {
+            var test = 0;
             Console.WriteLine("GOTO test:");
+            var watch = new System.Diagnostics.Stopwatch();
             watch.Reset();
             watch.Start();
             var j = 0;
@@ -51,8 +63,7 @@ namespace ST_Framework
                 goto Label;
             }
             watch.Stop();
-            Console.WriteLine($"Elapsed time: {watch.Elapsed}");
-            Console.WriteLine($"Test variable status {test}");
+            Console.WriteLine($"Elapsed time: {watch.Elapsed}\n"); ;
         }
     }
 }
